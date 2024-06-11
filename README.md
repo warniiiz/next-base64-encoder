@@ -110,10 +110,11 @@ If you want to check if strings have valid `base64` or `base64url` formats, you 
 ```javascript
 import { Base64Format, Base64UrlFormat } from 'next-base64-encoder';
 
+const base64Format = new Base64Format();
 const base64UrlFormat = new Base64UrlFormat();
 const helloMrWarniiiz = "SGVsbG8gTXIgV2FybmlpaXog8J+Riw==";
 
-const isValidBase64Format = base64UrlFormat.check(helloMrWarniiiz);
+const isValidBase64Format = base64Format.check(helloMrWarniiiz);
 const isValidBase64UrlFormat = base64UrlFormat.check(helloMrWarniiiz);
 
 console.log(isValidBase64Format, isValidBase64UrlFormat)
