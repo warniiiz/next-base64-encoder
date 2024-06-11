@@ -7,7 +7,7 @@
   "homepage": "https://github.com/warniiiz/next-base64-encoder",
   "repository": {
     "type": "git",
-    "url": "git://github.com/warniiiz/next-base64-encoder"
+    "url": "https://github.com/warniiiz/next-base64-encoder.git"
   },
   "type": "module",
   "sideEffects": false,
