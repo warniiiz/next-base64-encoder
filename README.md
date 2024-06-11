@@ -142,4 +142,4 @@ Contributions are welcome! Please open an issue or submit a pull request on GitH
 
 ## License
 
-SubtleCryptr is [ISC licensed](./LICENSE).
+Next Base64 Encoder module is [ISC licensed](./LICENSE).
