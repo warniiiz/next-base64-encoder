@@ -1,13 +1,13 @@
 {
   "name": "next-base64-encoder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Base64 Encoder & Decoder module, optimized for use in Next.js. Pure-JS, tree-shaking ready, with optimized performances. Only dependency: TextDecoder. Fallback to Buffer in 'Node' and 'Worker' environments, for fast execution for, respectively, Next.js and Edge Runtime middlewares.",
   "author": "Clément Warneys",
   "license": "ISC",
   "homepage": "https://github.com/warniiiz/next-base64-encoder",
   "repository": {
     "type": "git",
-    "url": "https://github.com/warniiiz/next-base64-encoder.git"
+    "url": "git+https://github.com/warniiiz/next-base64-encoder.git"
   },
   "type": "module",
   "sideEffects": false,
@@ -33,11 +33,9 @@
   },
   "keywords": [
     "base64",
-    "nextjs",
     "encoder",
     "decoder",
-    "binary",
-    "format",
+    "nextjs",
     "browser",
     "edge",
     "edge-runtime"

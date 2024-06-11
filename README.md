@@ -10,13 +10,13 @@ Pure-JS, tree-shaking ready, with optimized performances:
 - [2x to 8x faster](#performances) than browserify Buffer (used when using Buffer in client-side Next.js)
 - 20x lighter, only 1kB once webpacked by Next.js, saving more than 20kB of bundle size (compared to browserify Buffer when webpacked by Next.js)
 
-_From acorns grow oak trees..._
+19kB seems nothing, but it's worth it if you're only using a Base64 encoders from Node.js Buffer... _From acorns grow oak trees._
 
 No dependencies to install:
 - only `TextDecoder`, already available in all browsers built-in API)
-- or `Buffer` when used in Next.js or Edge Runtime (already available in built-in API)
+- or `Buffer` when used in Next.js or Edge Runtime (already available in Node built-in API)
 
-Fallback to Buffer in 'Node' and 'Worker' environments, for fastest execution (especially when encoding long string) in Next.js and Edge Runtime middlewares.
+Automatic fallback to Buffer (with C++ library) in 'node' and 'worker' environments, for faster execution (especially when encoding long string) in Next.js and Edge Runtime middlewares. Choice of using Buffer or pure-JS is transparently manage by webpack.
 
 
 ## Installation
@@ -135,6 +135,11 @@ You can check performance encoding / decoding performances, on different string 
 ```javascript
 npm run perf
 ```
+
+Observed performances: 
+- 2x to 8x faster than Browserify Buffer (used when using Buffer in client-side Next.js)
+- Better or equivalent performance on short strings (less than 64 characters) than Node.js Buffer. Rapid performance degradation on longer string, but nothing to worry about since Buffer fallback is used in Node.js and Edge runtime.
+
 
 ## Contributing
 
