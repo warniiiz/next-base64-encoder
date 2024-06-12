@@ -10,7 +10,7 @@ Pure-JS, tree-shaking ready, with optimized performances:
 - [2x to 8x faster](#performances) than browserify Buffer (used when using Buffer in client-side Next.js)
 - 20x lighter, only 1kB once webpacked by Next.js, saving more than 20kB of bundle size (compared to browserify Buffer when webpacked by Next.js)
 
-19kB seems nothing, but it's worth it if you're only using a Base64 encoders from Node.js Buffer... _From acorns grow oak trees._
+20kB seems nothing, but it's worth it if you're only using a Base64 encoders from Node.js Buffer... _From acorns grow oak trees._
 
 No dependencies to install:
 - only `TextDecoder`, already available in all browsers built-in API)
