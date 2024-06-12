@@ -1,9 +1,9 @@
-import { Base64Encoder as BrowserBase64Encoder } from '../src/browser/index.js';
-import { Base64Encoder as NodeBase64Encoder } from '../src/node/index.js';
+import { Base64SafeEncoder as BrowserBase64SafeEncoder } from '../src/browser/index.js';
+import { Base64SafeEncoder as NodeBase64SafeEncoder } from '../src/node/index.js';
 
-[BrowserBase64Encoder, NodeBase64Encoder].forEach(Base64Encoder => {
+[BrowserBase64SafeEncoder, NodeBase64SafeEncoder].forEach(Base64SafeEncoder => {
 
-  const encoder = new Base64Encoder();
+  const encoder = new Base64SafeEncoder();
 
   describe('Base64Encoder encode', () => {
 
@@ -26,10 +26,10 @@ import { Base64Encoder as NodeBase64Encoder } from '../src/node/index.js';
       expect(result).toEqual(new Uint8Array(byteArray));
     });
     
-    it('should convert a badly formated base64 string without throwing an error', () => {
+    it('should not convert a badly formated base64 string, throwing an error', () => {
       const base64String = 'SGVsbG8sIHdvcmxkIQ=='; // "Hello, world!" in base64
       const badBase64String = base64String + '****$$$$';
-      expect(() => encoder.encode(badBase64String)).not.toThrow();
+      expect(() => encoder.encode(badBase64String)).toThrow(/^Invalid base64/);
     });
 
   });

@@ -1,6 +1,8 @@
 /**
  * Same than `Base64` but for Node environnements
  */
+import { Base64Format, Base64UrlFormat } from '../browser/index.js';
+
 
 export class Base64Decoder {
 
@@ -37,12 +39,14 @@ export class Base64UrlDecoder {
 export class Base64Encoder {
   
   /**
-   * Takes a base64 encoded string ("base64" or "base64url") 
-   * and converts it to a UInt8Array binary array.
-   * @param {string} srcStr - base64 or base64url encoded string.
+   * Takes a base64 encoded string and converts it to a UInt8Array 
+   * binary array.
+   * @param {string} srcStr - base64 encoded string.
    * @returns a Uint8Array binary array
    */
-  encode = (srcStr) => new Uint8Array(Buffer.from(srcStr, 'base64'));
+  encode(base64String) {
+    return new Uint8Array(Buffer.from(base64String, 'base64'));
+  }
 
 }
 
@@ -50,16 +54,54 @@ export class Base64Encoder {
 export class Base64UrlEncoder {
   
   /**
-   * Takes a base64 encoded string ("base64" or "base64url") 
-   * and converts it to a UInt8Array binary array.
-   * @param {string} srcStr - base64 or base64url encoded string.
+   * Takes a base64url encoded string and converts it to a UInt8Array 
+   * binary array.
+   * @param {string} srcStr - base64url encoded string.
    * @returns a Uint8Array binary array
    */
-  encode = (srcStr) => new Uint8Array(Buffer.from(srcStr, 'base64url'));
+  encode(base64UrlString) {
+    return new Uint8Array(Buffer.from(base64UrlString, 'base64url'));
+  }
 
 }
 
-export { Base64Format, Base64UrlFormat } from '../browser/index.js';
+
+export class Base64SafeEncoder extends Base64Encoder {
+
+  /**
+   * Takes a base64 encoded string and converts it to a UInt8Array 
+   * binary array.
+   * @param {string} srcStr - base64 encoded string.
+   * @returns a Uint8Array binary array
+   * @throws {TypeError} - If the base64 string is invalid
+   */
+  encode(base64String) {
+    if (!Base64Format.check(base64String))
+      throw new TypeError(`Invalid base64 format: ${base64String}`);
+    return super.encode(base64String);
+  }
+  
+}
+
+export class Base64UrlSafeEncoder extends Base64UrlEncoder {
+
+  /**
+   * Takes a base64url encoded string and converts it to a UInt8Array 
+   * binary array.
+   * @param {string} srcStr - base64url encoded string.
+   * @returns a Uint8Array binary array
+   * @throws {TypeError} - If the base64url string is invalid
+   */
+  encode(base64UrlString) {
+    if (!Base64UrlFormat.check(base64UrlString))
+      throw new TypeError(`Invalid base64url format: ${base64UrlString}`);
+    return super.encode(base64UrlString);
+  };
+  
+}
+
+export { Base64Format, Base64UrlFormat } 
 
 // Test purpose, to check correct webpack use of package.json instructions 
 export const ENV = 'NODE|WORKER';
+

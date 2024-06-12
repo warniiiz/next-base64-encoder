@@ -20,7 +20,7 @@ import { Base64UrlDecoder as NodeBase64UrlDecoder } from '../src/node/index.js';
       const result = decoder.decode(byteArray);
       expect(result).toEqual(str);
     });
-
+    
   });
   
 });

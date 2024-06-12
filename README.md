@@ -100,7 +100,7 @@ console.log(decodedPhrase);
 
 `Base64Encoder` and `Base64UrlEncoder` can be instanciated once and then reused for multiple encodings.
 
-Note that above encoders do not check if the provided base64 strings have a valid format. It would be possible to add a `Base64SafeEncoder` and a `Base64UrlSafeEncoder` which would throw a `TypeError` in case of unexpected format. Feel free to ask for it or to send a pull-request.
+Note that above encoders do not check if the provided base64 strings have a valid format. Use the respective `Base64SafeEncoder` and `Base64UrlSafeEncoder` which throw a `TypeError` in case of unexpected format.
 
 
 ### Check correct base64 and base64url formats

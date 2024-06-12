@@ -1,9 +1,9 @@
-import { Base64UrlEncoder as BrowserBase64UrlEncoder } from '../src/browser/index.js';
-import { Base64UrlEncoder as NodeBase64UrlEncoder } from '../src/node/index.js';
+import { Base64UrlSafeEncoder as BrowserBase64UrlSafeEncoder } from '../src/browser/index.js';
+import { Base64UrlSafeEncoder as NodeBase64UrlSafeEncoder } from '../src/node/index.js';
 
-[BrowserBase64UrlEncoder, NodeBase64UrlEncoder].forEach(Base64UrlEncoder => {
+[BrowserBase64UrlSafeEncoder, NodeBase64UrlSafeEncoder].forEach(Base64UrlSafeEncoder => {
 
-  const encoder = new Base64UrlEncoder();
+  const encoder = new Base64UrlSafeEncoder();
     
   describe('Base64UrlEncoder encode', () => {
 
@@ -20,11 +20,12 @@ import { Base64UrlEncoder as NodeBase64UrlEncoder } from '../src/node/index.js';
       expect(result).toEqual(new Uint8Array(byteArray));
     });
     
-    it('should convert a badly formated base64url string without throwing an error', () => {
+    it('should not convert a badly formated base64url string, throwing an error', () => {
       const base64String = 'SGVsbG8sIHdvcmxkIQ'; // "Hello, world!" in base64url
       const badBase64String = base64String + '****$$$$';
-      expect(() => encoder.encode(badBase64String)).not.toThrow();
+      expect(() => encoder.encode(badBase64String)).toThrow(/^Invalid base64/);
     });
+    
 
   });
 

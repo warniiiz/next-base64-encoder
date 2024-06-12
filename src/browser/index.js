@@ -44,6 +44,8 @@ export { Base64Decoder } from './base64-decoder.js';
 export { Base64UrlDecoder } from './base64url-decoder.js';
 export { Base64GenericEncoder as Base64Encoder } from './base64-generic-encoder.js';
 export { Base64GenericEncoder as Base64UrlEncoder } from './base64-generic-encoder.js';
+export { Base64SafeEncoder } from './base64-safe-encoder.js';
+export { Base64UrlSafeEncoder } from './base64url-safe-encoder.js';
 export { Base64Format } from './base64-format.js';
 export { Base64UrlFormat } from './base64url-format.js';
 

@@ -21,7 +21,7 @@ const decodeTests = new Map([
   ["Buffer (browserify)     ", {test: (byteArray) => BrowserifyBuffer.from(byteArray).toString('base64')}],
 ])
   
-console.log("\nDECODING Byte-array to Base64 string")
+console.log("\nDECODING byte-array to Base64 string")
 tests.forEach((conversionQuantity, strLength) => {
   console.log("\n", conversionQuantity, "decodings of", strLength, "bytes length:");
   const generatedArray = new Array(strLength).fill(0).map((_, i) => i % 256);
@@ -43,7 +43,7 @@ const encodeTests = new Map([
   ["Buffer (browserify)     ", {test: (base64String) => new Uint8Array(BrowserifyBuffer.from(base64String, 'base64'))}],
 ])
 
-console.log("\nENCODING Base64 string to Byte-array")
+console.log("\nENCODING Base64 string to byte-array")
 tests.forEach((conversionQuantity, strLength) => {
   console.log("\n", conversionQuantity, "encodings of", strLength, "bytes length:");
   const generatedArray = new Array(strLength).fill(0).map((_, i) => i % 256);

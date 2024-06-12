@@ -22,6 +22,8 @@ export class Base64Decoder extends Base64GenericDecoder {
    * const base64String = Base64Decoder().decode(new Uint8Array([72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33]));
    * console.log(base64String); // "SGVsbG8sIHdvcmxkIQ
    */
-  decode = (srcArray) => super.decode(srcArray, BASE64_MAP, false);
+  decode(srcArray) {
+    return super.decode(srcArray, BASE64_MAP, false)
+  }
 
 }
