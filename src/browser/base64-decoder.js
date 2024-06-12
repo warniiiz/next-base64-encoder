@@ -1,5 +1,5 @@
 import { Base64GenericDecoder } from './base64-generic-decoder.js';
-import { BASE64_MAP } from './constants.js';
+import { BASE64_MAP } from './base64-map.js';
 
 export class Base64Decoder extends Base64GenericDecoder {
   

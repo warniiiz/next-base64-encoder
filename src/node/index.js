@@ -1,4 +1,9 @@
 /**
+ * @author   Clément Warneys <https://github.com/warniiiz>
+ * @license  ISC
+**/
+
+/**
  * Same than `Base64` but for Node environnements
  */
 import { Base64Format, Base64UrlFormat } from '../browser/index.js';

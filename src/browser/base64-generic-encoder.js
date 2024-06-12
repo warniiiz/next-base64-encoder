@@ -1,4 +1,5 @@
-import { BASE64_MAP, BASE64URL_MAP } from './constants.js';
+import { BASE64_MAP } from './base64-map.js';
+import { BASE64URL_MAP } from './base64url-map.js';
 
 export class Base64GenericEncoder {
 

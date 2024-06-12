@@ -1,4 +1,12 @@
 /**
+ * @author   Clément Warneys <https://github.com/warniiiz>
+ * @license  ISC
+**/
+
+/**
+ * _Above legal information shall remain separate in order webpack to be able to
+ * remove it._
+ * 
  * The `Base64` module provides 3 classes:
  * - `Base64Decoder` : for decoding binary array to "base64" string ;
  * - `Base64UrlDecoder` : for decoding binary array to "base64url" string ;
