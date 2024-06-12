@@ -1,7 +1,7 @@
 {
   "name": "next-base64-encoder",
   "version": "1.0.2",
-  "description": "Base64 Encoder & Decoder module, fully optimized for Next.js. C++ or Pure-JS, depending on your environments. Tree-shaking ready.",
+  "description": "Base64 Encoder & Decoder NPM module, fully optimized for Next.js. C++ or Pure-JS, depending on your environments. Tree-shaking ready.",
   "author": "Clément Warneys",
   "license": "ISC",
   "homepage": "https://github.com/warniiiz/next-base64-encoder",

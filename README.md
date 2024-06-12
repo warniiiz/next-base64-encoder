@@ -4,7 +4,7 @@
 ![NPM Downloads](https://img.shields.io/npm/dw/next-base64-encoder)
 ![NPM Version](https://img.shields.io/npm/v/next-base64-encoder)
  
-Base64 Encoder & Decoder module, optimized for Next.js. Usable server-side, client-side and in Edge Runtime (for middleware).
+Base64 Encoder & Decoder is an NPM module, optimized for Next.js. Usable server-side, client-side and in Edge Runtime (for middleware).
 
 Pure-JS, tree-shaking ready, with optimized performances:  
 - [2x to 8x faster](#performances) than browserify Buffer (used when using Buffer in client-side Next.js)
@@ -121,11 +121,22 @@ console.log(isValidBase64Format, isValidBase64UrlFormat)
 // Expected: true false 
 ```
 
-## Differences with atob & btoa
+## Why another Base64 Encoder & Decoder?
 
-(`btoa` method)[https://developer.mozilla.org/en-US/docs/Web/API/Window/btoa] of the built-in APIs creates a Base64-encoded ASCII string from a binary string (i.e., a string in which each character in the string is treated as a byte of binary data).
+With the latest releases of Next.js, I needed a light-weight yet powerful library to do the base64 conversions, on both client and server side, and wich would do the job transparently for the developper. 
 
-This method is (not suitable for encoding)[https://developer.mozilla.org/en-US/docs/Glossary/Base64#the_unicode_problem] strings with non-ASCII characters, such as UTF-8 strings.
+- This module is tree-shaking ready, so webpack will pack only the code you need.
+- The package configuration of this module is optimized such that the best encoder is used depending on the runtime environment: Pure-JS is used in the browser, and Buffer is used in Node.js and Edge Runtime. This garantees the best performances in each environment, and is totaly transparent for the developper, which can use the same module whatever the environment.
+
+### Differences with Buffer
+
+Buffer is very fast in Node.js environment, but it's not natively available in the browser. When using Buffer in Next.js, webpack fallbacks to the browserify Buffer on client-side, which is slower and heavier than the pure-JS implementation of this module.
+
+### Differences with atob & btoa
+
+[`btoa` method](https://developer.mozilla.org/en-US/docs/Web/API/Window/btoa) of the built-in APIs creates a Base64-encoded ASCII string from a binary string (i.e., a string in which each character in the string is treated as a byte of binary data).
+
+This method is [not suitable for encoding](https://developer.mozilla.org/en-US/docs/Glossary/Base64#the_unicode_problem) strings with non-ASCII characters, such as UTF-8 strings.
 
 ```javascript
 const phrase = 'Hello Mr Warniiiz 👋';
@@ -133,6 +144,7 @@ const base64Phrase = btoa(phrase);
 // Expected: throw Error('Invalid character');
 ```
 
+Furthermore, another difference is Next Base64 Encoder & Decoder converts _binary arrays_ to base64 strings and vice versa, not _strings_.
 
 ## Tests
 
