@@ -1,6 +1,6 @@
 {
   "name": "next-base64-encoder",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Base64 Encoder & Decoder NPM module, fully optimized for Next.js. C++ or Pure-JS, depending on your environments. Tree-shaking ready.",
   "author": "Clément Warneys",
   "license": "ISC",
@@ -11,7 +11,7 @@
   },
   "type": "module",
   "sideEffects": false,
-  "main": "./src/browser/index.js",
+  "main": "./src/node/index.js",
   "exports": {
     ".": {
       "node": "./src/node/index.js",
