@@ -33,7 +33,7 @@ Import only the class you need, in order tree-shaking to be effective.
 
 ### Decoding from binary array to base64 or base64url string
 
-First, get a binary array (UInt8Array) from a utf-8 string (for example):
+First, get a binary array (UInt8Array) from a string (here a UTF-8 string):
 
 ```javascript
 const phrase = 'Hello Mr Warniiiz 👋';
@@ -120,6 +120,19 @@ const isValidBase64UrlFormat = base64UrlFormat.check(helloMrWarniiiz);
 console.log(isValidBase64Format, isValidBase64UrlFormat)
 // Expected: true false 
 ```
+
+## Differences with atob & btoa
+
+(`btoa` method)[https://developer.mozilla.org/en-US/docs/Web/API/Window/btoa] of the built-in APIs creates a Base64-encoded ASCII string from a binary string (i.e., a string in which each character in the string is treated as a byte of binary data).
+
+This method is (not suitable for encoding)[https://developer.mozilla.org/en-US/docs/Glossary/Base64#the_unicode_problem] strings with non-ASCII characters, such as UTF-8 strings.
+
+```javascript
+const phrase = 'Hello Mr Warniiiz 👋';
+const base64Phrase = btoa(phrase);
+// Expected: throw Error('Invalid character');
+```
+
 
 ## Tests
 
