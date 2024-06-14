@@ -1,6 +1,6 @@
 {
   "name": "next-base64-encoder",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Base64 Encoder & Decoder NPM module, fully optimized for Next.js. C++ or Pure-JS, depending on your environments. Tree-shaking ready.",
   "author": "Clément Warneys",
   "license": "ISC",
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" npx jest ./test",
-    "perf": "node ./test/performance.js",
+    "perf": "node ./performance/local.js",
     "lint": "eslint ./"
   },
   "devDependencies": {
@@ -29,7 +29,8 @@
     "buffer": "^6.0.3",
     "eslint": "^9.4.0",
     "globals": "^15.4.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "webpack-cli": "^5.1.4"
   },
   "keywords": [
     "base64",

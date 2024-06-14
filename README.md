@@ -156,6 +156,8 @@ npm run test
 
 ## Performances
 
+### In Node.js
+
 You can check performance encoding / decoding performances, on different string lengths, running the following command:
 
 ```javascript
@@ -165,6 +167,18 @@ npm run perf
 Observed performances: 
 - 2x to 8x faster than Browserify Buffer (used when using Buffer in client-side Next.js)
 - Better or equivalent performance on short strings (less than 64 characters) than Node.js Buffer. Rapid performance degradation on longer string, but nothing to worry about since Buffer fallback is used in Node.js and Edge runtime.
+
+### In Edge runtime
+
+If you want to launch the tests in Edge runtime, you can modify your middleware.js from your Next.js project root folder like this:
+  
+```javascript
+export { middleware } from './node_modules/next-base64-encoder/performance/nextjs-middleware.js';
+```
+
+Then run your project with `npm run dev` and go to `http://localhost:3000/test`. The results will be displayed in the server console and in the browser as a JSON object.
+
+_Note that the pure-JS performance are worst than in Node.js runtime... Although, since Node's Buffer is used for Base64 conversion in Edge runtime, there is no need to improve pure-JS performances on this side._
 
 
 ## Contributing
