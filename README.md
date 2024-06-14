@@ -178,6 +178,8 @@ export { middleware } from './node_modules/next-base64-encoder/performance/nextj
 
 Then run your project with `npm run dev` and go to `http://localhost:3000/test`. The results will be displayed in the server console and in the browser as a JSON object.
 
+This middleware has the Browserify buffer dependency: `npm install --save-dev buffer`.
+
 _Note that the pure-JS performance are worst than in Node.js runtime... Although, since Node's Buffer is used for Base64 conversion in Edge runtime, there is no need to improve pure-JS performances on this side._
 
 
