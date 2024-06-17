@@ -158,7 +158,7 @@ npm run test
 
 ### In Node.js
 
-You can check performance encoding / decoding performances, on different string lengths, running the following command:
+You can check encoding / decoding performances, on different string lengths, running the following command:
 
 ```javascript
 npm run perf
